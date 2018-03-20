@@ -51,3 +51,16 @@ Usage of encrypted files:
     IMGLoader:EncryptFile( path, encryptionKey ) --Encypts file pointed by path using encryptionKey as encryption key
 ```
 Functions in BinaryReader and BinaryConverter classes aren't documented here, as they aren't the focus of this repository.
+
+
+
+License
+----
+> ----------------------------------------------------------------------------
+> Kamil Marciniak <github.com/forkerer> wrote this code. As long as you retain this 
+> notice, you can do whatever you want with this stuff. If we
+> meet someday, and you think this stuff is worth it, you can
+> buy me a beer in return.
+ ----------------------------------------------------------------------------
+
+
