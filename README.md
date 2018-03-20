@@ -29,7 +29,7 @@ Example code showing usage of IMG files
     IMG:CloseFile()
 ```   
 Usage of encrypted files:
-```
+```lua
     -- This will encrypt out file using "ExampleKey123!" key, 
     -- and place it in the same folder as original file, with ".imge" extension
     IMGLoader():EncryptFile( "exampleFile.img", "ExampleKey123!" )
