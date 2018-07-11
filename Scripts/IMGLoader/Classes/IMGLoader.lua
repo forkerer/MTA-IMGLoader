@@ -108,13 +108,25 @@ function IMGLoader:GetFile(name)
 	end
 	if type(self.file) == "string" then
 		local retFile = self.file:sub(realOffset+1, realOffset+1+realSize)
+		retFile = self:RemoveNullsFromEndOfFile(retFile)
 		return retFile
 	else
 		fileSetPos(self.file, realOffset)
 		local retFile = fileRead(self.file, realSize)
+		retFile = self:RemoveNullsFromEndOfFile(retFile)
 		return retFile
 	end
 	return false
+end
+
+function IMGLoader:RemoveNullsFromEndOfFile(file)
+	local ind = #file
+	while ind >= 1 and (file:sub(ind,ind) == "\0")  do
+		ind = ind - 1
+	end
+	if ind <= 0 then return end
+
+	return file:sub(1, ind)
 end
 
 function IMGLoader:EncryptFile(path, encryptionKey)
