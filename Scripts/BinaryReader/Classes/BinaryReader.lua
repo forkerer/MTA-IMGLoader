@@ -145,6 +145,21 @@ function BinaryReader:ReadUInt8()
 	return false
 end
 
+function BinaryReader:ReadHalf()
+	if self.mode == "file" then
+		if not fileIsEOF( self.file ) then
+			return self.converter:FromHalf(fileRead( self.file, 2 ))
+		end
+	elseif self.mode == "string" then
+		if #self.file - self.curOffset >= 1 then
+			local subStr = self.file:sub(self.curOffset, self.curOffset+1)
+			self.curOffset = self.curOffset + 2
+			return self.converter:FromHalf(subStr)
+		end
+	end
+	return false
+end
+
 function BinaryReader:ReadFloat()
 	if self.mode == "file" then
 		if not fileIsEOF( self.file ) then
@@ -166,8 +181,8 @@ function BinaryReader:ReadDouble()
 			return self.converter:FromDouble(fileRead( self.file, 8 ))
 		end
 	elseif self.mode == "string" then
-		if #self.file - self.curOffset >= 3 then
-			local subStr = self.file:Sub(self.curOffset, self.curOffset+3)
+		if #self.file - self.curOffset >= 7 then
+			local subStr = self.file:Sub(self.curOffset, self.curOffset+7)
 			self.curOffset = self.curOffset + 8
 			return self.converter:FromDouble(subStr)
 		end
