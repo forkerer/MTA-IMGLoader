@@ -3,7 +3,6 @@
 
 	<script src="Scripts/BinaryConverter/Classes/BinaryConverter.lua" type="client" cache="false"/>
 	<script src="Scripts/BinaryReader/Classes/BinaryReader.lua" type="client" cache="false"/>
-	<script src="Scripts/BinaryReader/Classes/BinaryWriter.lua" type="client" cache="false"/>
 	<script src="Scripts/IMGLoader/Classes/IMGLoader.lua" type="client" cache="false"/>
 		
 </meta>
